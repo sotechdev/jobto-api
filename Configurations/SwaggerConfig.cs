@@ -5,12 +5,13 @@ namespace JobTo.API.Configurations
 {
     public static class SwaggerConfig
     {
-        public static void AddSwagger(this IServiceCollection services)
+        public static IServiceCollection AddSwagger(this IServiceCollection services)
         {
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "JobTo", Version = "v1" });
             });
+            return services;
         }
     }
 }
