@@ -17,8 +17,8 @@ namespace JobTo.API
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
             services.AddSwagger();
+            services.AddControllers();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -26,7 +26,10 @@ namespace JobTo.API
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "JobTo v1"));
+                app.UseSwaggerUI(c => 
+                { 
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "JobTo v1");
+                });
             }
 
             app.UseRouting();
